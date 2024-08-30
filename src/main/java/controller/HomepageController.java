@@ -17,10 +17,7 @@ public class HomepageController implements Initializable {
     private JFXToggleButton btnCompleted;
 
     @FXML
-    private JFXRadioButton btnSortByDate;
-
-    @FXML
-    private JFXRadioButton btnSortByName;
+    private JFXToggleButton btnSortByDate;
 
     @FXML
     private DatePicker expDate;
@@ -41,7 +38,7 @@ public class HomepageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         service = new HomepageServiceImpl();
         service.clearAll(txtTitle,txtDescription,expDate);
-        service.loadTable(taskList, btnCompleted);
+        service.loadTable(taskList, btnCompleted, btnSortByDate);
     }
 
     @FXML
@@ -61,21 +58,16 @@ public class HomepageController implements Initializable {
 
     @FXML
     void btnCompletedOnAction(ActionEvent event) {
-        service.loadTable(taskList,btnCompleted);
+        service.loadTable(taskList,btnCompleted, btnSortByDate);
     }
 
     @FXML
     void btnReloadOnAction(ActionEvent event) {
-        service.loadTable(taskList,btnCompleted);
+        service.loadTable(taskList,btnCompleted, btnSortByDate);
     }
 
     @FXML
     void btnSortByDateOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnSortByNameOnAction(ActionEvent event) {
-
+service.loadTable(taskList,btnCompleted,btnSortByDate);
     }
 }

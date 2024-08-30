@@ -20,6 +20,7 @@ public class HomepageServiceImpl implements HomepageService {
     private static JFXTextArea txtDescription;
     private static DatePicker expDate;
     private static JFXToggleButton btnCompleted;
+    private static JFXToggleButton btnSortByDate;
 
     public HomepageServiceImpl(){
         try {
@@ -30,15 +31,19 @@ public class HomepageServiceImpl implements HomepageService {
     }
 
     @Override
-    public void loadTable(VBox taskList, JFXToggleButton btnCompleted) {
+    public void loadTable(VBox taskList, JFXToggleButton btnCompleted, JFXToggleButton btnSortByDate) {
         this.taskList = taskList;
         this.btnCompleted = btnCompleted;
+        this.btnSortByDate = btnSortByDate;
         taskList.getChildren().clear();
         String SQL;
         if (btnCompleted.isSelected()){
             SQL = "SELECT * FROM Task INNER JOIN Task_Status ON Task.id=Task_Status.id WHERE Task_Status.is_completed='1'";
         } else {
             SQL = "SELECT * FROM Task INNER JOIN Task_Status ON Task.id=Task_Status.id";
+        }
+        if (btnSortByDate.isSelected()){
+            SQL += " ORDER BY completion_date";
         }
         try {
             ResultSet resultSet = dbConnection.prepareStatement(SQL).executeQuery();
@@ -76,7 +81,7 @@ public class HomepageServiceImpl implements HomepageService {
             if (preparedStatement01.executeUpdate()>0 && preparedStatement02.executeUpdate()>0 && preparedStatement03.executeUpdate()>0){
                 new Alert(Alert.AlertType.INFORMATION,"New Task Added!").show();
                 clearAll(txtTitle,txtDescription,expDate);
-                loadTable(taskList, btnCompleted);
+                loadTable(taskList, btnCompleted, btnSortByDate);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -36,22 +34,6 @@
             <Font size="15.0" />
          </font>
       </JFXTextField>
-      <JFXRadioButton fx:id="btnSortByName" layoutX="14.0" layoutY="25.0" onAction="#btnSortByNameOnAction" prefHeight="21.0" prefWidth="105.0" text="Sort By Name">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <selectedColor>
-            <Color red="0.20392157137393951" green="0.5960784554481506" blue="0.8588235378265381" />
-         </selectedColor>
-      </JFXRadioButton>
-      <JFXRadioButton fx:id="btnSortByDate" layoutX="222.0" layoutY="25.0" onAction="#btnSortByDateOnAction" prefHeight="21.0" prefWidth="105.0" text="Sort By Date">
-         <font>
-            <Font size="15.0" />
-         </font>
-         <selectedColor>
-            <Color red="0.20392157137393951" green="0.5960784554481506" blue="0.8588235378265381" />
-         </selectedColor>
-      </JFXRadioButton>
       <JFXButton alignment="CENTER" layoutX="429.0" layoutY="674.0" onAction="#btnAddOnAction" prefHeight="31.0" prefWidth="126.0" style="-fx-background-radius: 50px; -fx-background-color: #1abc9c;" text="Add" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -69,5 +51,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <JFXToggleButton fx:id="btnSortByDate" layoutX="14.0" layoutY="8.0" onAction="#btnSortByDateOnAction" text="Sort By Date">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXToggleButton>
    </children>
 </AnchorPane>

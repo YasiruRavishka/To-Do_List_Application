@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import java.time.LocalDate;
 
 public interface HomepageService {
-    void loadTable(VBox taskList, JFXToggleButton btnCompleted);
+    void loadTable(VBox taskList, JFXToggleButton btnCompleted, JFXToggleButton btnSortByDate);
 
     void addTask(String title, String description, LocalDate completion_date);
 
